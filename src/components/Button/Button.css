@@ -1,0 +1,28 @@
+.button {
+    padding: 12px 15px;
+    text-transform: uppercase;
+    border-radius: 5px;
+    margin: 50px auto;
+    display: block;
+}
+
+.button.default {
+    background: #E2E6EA;
+    color: #666;
+}
+
+.button.danger {
+    background: rgb(233, 54, 54);
+    color: white;
+}
+
+.button.success {
+    background: rgb(43, 168, 80);
+    color: white;
+}
+
+.button.outlined {
+    background: transparent;
+    color: #888;
+    border: 1px solid #888;
+}
