@@ -2,8 +2,7 @@
     padding: 12px 15px;
     text-transform: uppercase;
     border-radius: 5px;
-    margin: 50px auto;
-    display: block;
+    margin-left: 4px;
 }
 
 .button.default {

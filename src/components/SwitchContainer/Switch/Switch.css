@@ -1,0 +1,54 @@
+.switch {
+    font-family: sans-serif;
+    font-size: 1.2rem;
+    width: 100px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.switch__text-left {
+    margin-right: 5px;
+}
+
+.switch__text-right {
+    margin-left: 5px;
+}
+
+.switch__bar {
+    height: 5px;
+    width: 60px;
+    position: relative;
+}
+
+/*--- modifiers of switch__bar element ---*/
+.switch__bar_on {
+    background: rgb(37, 37, 73);
+}
+
+.switch__bar_off {
+    background: rgb(129, 123, 123);
+}
+
+.switch__ball {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    position: absolute;
+    top: 3px; /*the height of parent bar*/
+    transform: translateY(-50%);
+    transition: all .25s;
+}
+
+/*--- modifiers of switch__ball element ---*/
+.switch__ball_on {
+    background: rgb(37, 37, 73);
+    left: calc(100% - 25px);
+}
+
+.switch__ball_off {
+    background: rgb(232, 231, 235);
+    left: 0;
+}
+

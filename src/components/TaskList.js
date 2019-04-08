@@ -3,13 +3,13 @@ import PropTypes from 'prop-types';
 
 import Task from './Task';
 import { connect } from 'react-redux';
-import { archiveTask, pinTask } from '../lib/redux';
+import { archiveTask, pinTask } from '../lib/redux'; //action creators that return action objects which reaches the reducers
 
-export function PureTaskList({ loading, tasks, onPinTask, onArchiveTask }) {
+export function TaskList(props) {
     /* previous implementation of TaskList */
     const events = {
-        onPinTask,
-        onArchiveTask,
+        onPinTask: props.onPinTask,
+        onArchiveTask: props.onArchiveTask,
     };
 
     const LoadingRow = (
@@ -23,7 +23,7 @@ export function PureTaskList({ loading, tasks, onPinTask, onArchiveTask }) {
         </div>
     );
 
-    if (loading) {
+    if (props.loading) {
         return (
             <div className="list-items">
                 {LoadingRow}
@@ -36,7 +36,7 @@ export function PureTaskList({ loading, tasks, onPinTask, onArchiveTask }) {
         );
     }
 
-    if (tasks.length === 0) {
+    if (props.tasks.length === 0) {
         return (
             <div className="list-items">
                 <div className="wrapper-message">
@@ -49,8 +49,8 @@ export function PureTaskList({ loading, tasks, onPinTask, onArchiveTask }) {
     }
 
     const tasksInOrder = [
-        ...tasks.filter(t => t.state === 'TASK_PINNED'),
-        ...tasks.filter(t => t.state !== 'TASK_PINNED'),
+        ...props.tasks.filter(t => t.state === 'TASK_PINNED'),
+        ...props.tasks.filter(t => t.state !== 'TASK_PINNED'),
     ];
 
     return (
@@ -60,14 +60,14 @@ export function PureTaskList({ loading, tasks, onPinTask, onArchiveTask }) {
     );
 }
 
-PureTaskList.propTypes = {
+TaskList.propTypes = {
     loading: PropTypes.bool,
     tasks: PropTypes.arrayOf(Task.propTypes.task).isRequired,
     onPinTask: PropTypes.func.isRequired,
     onArchiveTask: PropTypes.func.isRequired,
 };
 
-PureTaskList.defaultProps = {
+TaskList.defaultProps = {
     loading: false,
 };
 
@@ -83,6 +83,6 @@ const mapDispatchToProps = dispatch => {
         onPinTask: id => dispatch(pinTask(id))
     }
 };
-    
-export default connect(mapStateToProps, mapDispatchToProps)(PureTaskList);
+
+export default connect(mapStateToProps, mapDispatchToProps)(TaskList);
 

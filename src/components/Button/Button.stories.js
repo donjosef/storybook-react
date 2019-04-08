@@ -13,7 +13,7 @@ const types = {
 const clickAction = action('button clicked');
 
 storiesOf('Button', module)
-    .add('default', () => <Button type={types['default']} click={clickAction}/> )
-    .add('danger', () => <Button type={types['danger']} click={clickAction}/> )
-    .add('success', () => <Button type={types['success']} click={clickAction}/>)
-    .add('outlined', () => <Button type={types['outlined']} click={clickAction}/>)
+    .add('default', () => <Button type={types['default']} click={clickAction}>Default</Button> )
+    .add('danger', () => <Button type={types['danger']} click={clickAction}>Danger</Button> )
+    .add('success', () => <Button type={types['success']} click={clickAction}>Success</Button>)
+    .add('outlined', () => <Button type={types['outlined']} click={clickAction}>Outlined</Button>)

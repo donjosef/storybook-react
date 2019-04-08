@@ -5,7 +5,7 @@ const Button = props => {
     let btnClasses = ['button', props.type];
 
     return (
-        <button className={btnClasses.join(' ')} onClick={(e) => props.click(e.ctrlKey)}>{props.type}</button>
+        <button className={btnClasses.join(' ')} onClick={props.click}>{props.children}</button>
     );
 }
 
